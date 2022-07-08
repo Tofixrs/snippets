@@ -33,4 +33,4 @@ new Confirm({
 ```
 
 Result:  
-![Result of the code](.github/assets/Confirm.gif)
+![Result of the code](https://github.com/Tofix26/snippets/blob/main/.github/assets/typescript/discordjs/Confirm.gif)
