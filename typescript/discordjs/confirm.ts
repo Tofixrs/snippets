@@ -92,14 +92,15 @@ export class Confirm {
 				}
 			}
 		});
-		collector.on('end', (int) => {
+		collector.on('end', async (int) => {
 			msg.components.forEach((row, index) => {
 				if (index != 0) return;
 				row.components.forEach((button) => {
 					button.setDisabled(true);
 				});
 			});
-			msg.edit({ components: msg.components });
+			if (await msg.channel.messages.cache.get(msg.id))
+				msg.edit({ components: msg.components });
 		});
 	}
 }
