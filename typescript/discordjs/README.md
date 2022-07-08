@@ -7,7 +7,9 @@
 ### Confirm
 
 Description: Simple confirmation interaction  
-Example Usage: (gonna update later with a gif)
+Example Usage:
+
+Code:
 
 ```ts
 let embed = new MessageEmbed()
@@ -29,3 +31,6 @@ new Confirm({
 		int.reply({ content: 'Banning  the user canceled', ephemeral: true }),
 }).replyMsg({ embeds: [embed] });
 ```
+
+Result:  
+![Result of the code](.github/assets/Confirm.gif)
