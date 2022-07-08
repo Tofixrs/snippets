@@ -24,7 +24,6 @@ new Confirm({
 	context: msg,
 	redBtnText: 'No',
 	greenBtnText: 'Yes',
-	color: 'RANDOM',
 	onConfirm: (int) =>
 		int.reply({ content: 'User has been banned!', ephemeral: true }),
 	onDecline: (int) =>

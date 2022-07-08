@@ -12,7 +12,6 @@ import {
 interface ConfirmOptions {
 	redBtnText: string;
 	greenBtnText: string;
-	color?: ColorResolvable;
 	context: Message | CommandInteraction;
 	onConfirm: (interaction: ButtonInteraction) => void;
 	onDecline: (Interaction: ButtonInteraction) => void;
