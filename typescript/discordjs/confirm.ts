@@ -81,7 +81,7 @@ export class Confirm {
 				}
 			}
 		});
-		collector.on('end', async (int) => {
+		collector.on('end', async (_) => {
 			msg.components.forEach((row, index) => {
 				if (index != 0) return;
 				row.components.forEach((button) => {
