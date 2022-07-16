@@ -43,31 +43,21 @@ export class Confirm {
 		this.onConfirm = onConfirm;
 		this.onDecline = onDecline;
 	}
-	public async replyMsg(payload: MessageOptions) {
-		if (this.context instanceof CommandInteraction) {
-			throw new Error('This function is only used for messages!');
-		}
+	public async reply(payload: MessageOptions | InteractionReplyOptions) {
 		let components = payload.components
 			? [this.row, ...payload.components]
 			: [this.row];
-		let msg = await this.context.reply({
-			...payload,
-			components: components,
-		});
-		this.createCollector(msg);
-	}
-	public async replyInt(payload: InteractionReplyOptions) {
-		if (this.context instanceof Message) {
-			throw new Error('This function is only used for interactions!');
-		}
-		let components = payload.components
-			? [this.row, ...payload.components]
-			: [this.row];
-		let msg = (await this.context.reply({
-			...payload,
-			fetchReply: true,
-			components: components,
-		})) as Message;
+		let msg =
+			this.context instanceof Message
+				? await this.context.reply({
+						...(payload as MessageOptions),
+						components: components,
+				  })
+				: ((await this.context.reply({
+						...(payload as InteractionReplyOptions),
+						components: components,
+						fetchReply: true,
+				  })) as Message);
 		this.createCollector(msg);
 	}
 	private createCollector(msg: Message) {
