@@ -92,11 +92,13 @@ export class Confirm {
         new ButtonBuilder()
           .setStyle(ButtonStyle.Success)
           .setLabel(this.greenBtnText)
-          .setCustomId("yes"),
+          .setCustomId("yes")
+          .setDisabled(true),
         new ButtonBuilder()
           .setStyle(ButtonStyle.Danger)
           .setLabel(this.redBtnText)
-          .setCustomId("no"),
+          .setCustomId("no")
+          .setDisabled(true),
       ]);
       //@ts-ignore d.js make ur fucking typings work
       msg.components[0] = row;

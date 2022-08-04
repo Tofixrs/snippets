@@ -70,11 +70,13 @@ class Confirm {
                 new discord_js_1.ButtonBuilder()
                     .setStyle(discord_js_1.ButtonStyle.Success)
                     .setLabel(this.greenBtnText)
-                    .setCustomId("yes"),
+                    .setCustomId("yes")
+                    .setDisabled(true),
                 new discord_js_1.ButtonBuilder()
                     .setStyle(discord_js_1.ButtonStyle.Danger)
                     .setLabel(this.redBtnText)
-                    .setCustomId("no"),
+                    .setCustomId("no")
+                    .setDisabled(true),
             ]);
             //@ts-ignore d.js make ur fucking typings work
             msg.components[0] = row;
