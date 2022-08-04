@@ -4,14 +4,14 @@
 
 - [Confirm](#Confirm)
 
-### [Confirm](confirm.ts)
+### [Confirm](confirm.js)
 
 Description: Simple confirmation interaction  
 Example Usage:
 
 Code:
 
-```ts
+```js
 let embed = new MessageEmbed()
   .setTitle("Are you sure?")
   .setColor("RED")

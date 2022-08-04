@@ -4,7 +4,7 @@
 
 - [Option](#Option)
 
-### [Option](option.ts)
+### [Option](option.js)
 
 Description: A Maybe | Option monad.  
 Example Usage: (gonna update this later)
