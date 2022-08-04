@@ -2,17 +2,14 @@
   "name": "snippets",
   "version": "1.0.0",
   "description": "Random snippets for various languages and libraries",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tofix26/snippets.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "NONE",
   "bugs": {
     "url": "https://github.com/Tofix26/snippets/issues"
   },
