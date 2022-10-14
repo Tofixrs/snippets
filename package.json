@@ -1,20 +1,27 @@
 {
-  "name": "snippets",
-  "version": "1.0.0",
-  "description": "Random snippets for various languages and libraries",
-  "main": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tofix26/snippets.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "NONE",
-  "bugs": {
-    "url": "https://github.com/Tofix26/snippets/issues"
-  },
-  "homepage": "https://github.com/Tofix26/snippets#readme",
-  "dependencies": {
-    "discord.js": "^14.6.0"
-  }
+	"name": "snippets",
+	"version": "1.0.0",
+	"description": "Random snippets for various languages and libraries",
+	"main": "",
+	"scripts": {
+		"build": "swc typescript -d javascript"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Tofix26/snippets.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "NONE",
+	"bugs": {
+		"url": "https://github.com/Tofix26/snippets/issues"
+	},
+	"homepage": "https://github.com/Tofix26/snippets#readme",
+	"dependencies": {
+		"discord.js": "^14.6.0"
+	},
+	"devDependencies": {
+		"@swc/cli": "^0.1.57",
+		"@swc/core": "^1.3.8"
+	}
 }
