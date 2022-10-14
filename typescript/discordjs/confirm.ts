@@ -88,6 +88,9 @@ export class Confirm {
 			}
 		});
 		collector.on('end', async (_) => {
+			if (this.context instanceof CommandInteraction) {
+				if (this.context.ephemeral) return;
+			}
 			let row = new ActionRowBuilder().addComponents([
 				new ButtonBuilder()
 					.setStyle(ButtonStyle.Success)
