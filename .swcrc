@@ -15,7 +15,6 @@
 		"type": "commonjs",
 		"strict": true,
 		"strictMode": true,
-		"lazy": true,
 		"noInterop": true
 	},
 	"minify": false

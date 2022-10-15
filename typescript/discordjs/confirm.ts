@@ -88,9 +88,6 @@ export class Confirm {
 			}
 		});
 		collector.on('end', async (_) => {
-			if (this.context instanceof CommandInteraction) {
-				if (this.context.ephemeral) return;
-			}
 			let row = new ActionRowBuilder().addComponents([
 				new ButtonBuilder()
 					.setStyle(ButtonStyle.Success)
@@ -105,6 +102,10 @@ export class Confirm {
 			]);
 			//@ts-ignore d.js make ur fucking typings work
 			msg.components[0] = row;
+			if (this.context instanceof CommandInteraction) {
+				this.context.editReply({ components: msg.components });
+				return;
+			}
 			msg.edit({ components: msg.components });
 		});
 	}

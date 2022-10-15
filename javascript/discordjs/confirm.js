@@ -3,20 +3,14 @@ Object.defineProperty(exports, "Confirm", {
     enumerable: true,
     get: ()=>Confirm
 });
-function _discordJs() {
-    const data = require("discord.js");
-    _discordJs = function() {
-        return data;
-    };
-    return data;
-}
+const _discordJs = require("discord.js");
 class Confirm {
     constructor({ onConfirm , onDecline , context , greenBtnText , redBtnText  }){
         this.redBtnText = redBtnText;
         this.greenBtnText = greenBtnText;
-        this.row = new (_discordJs()).ActionRowBuilder().addComponents([
-            new (_discordJs()).ButtonBuilder().setStyle(_discordJs().ButtonStyle.Success).setLabel(this.greenBtnText).setCustomId('yes'),
-            new (_discordJs()).ButtonBuilder().setStyle(_discordJs().ButtonStyle.Danger).setLabel(this.redBtnText).setCustomId('no')
+        this.row = new _discordJs.ActionRowBuilder().addComponents([
+            new _discordJs.ButtonBuilder().setStyle(_discordJs.ButtonStyle.Success).setLabel(this.greenBtnText).setCustomId('yes'),
+            new _discordJs.ButtonBuilder().setStyle(_discordJs.ButtonStyle.Danger).setLabel(this.redBtnText).setCustomId('no')
         ]);
         this.context = context;
         this.onConfirm = onConfirm;
@@ -29,7 +23,7 @@ class Confirm {
         ] : [
             this.row
         ];
-        let msg = this.context instanceof _discordJs().Message ? await this.context.reply({
+        let msg = this.context instanceof _discordJs.Message ? await this.context.reply({
             ...payload,
             //@ts-ignore d.js make ur fucking typings work
             components: components
@@ -42,7 +36,7 @@ class Confirm {
         this.createCollector(msg);
     }
     createCollector(msg) {
-        let usr = this.context instanceof _discordJs().Message ? this.context.author : this.context.user;
+        let usr = this.context instanceof _discordJs.Message ? this.context.author : this.context.user;
         let collector = msg.createMessageComponentCollector({
             filter: (int)=>int.user.id == usr.id,
             time: 15_000,
@@ -64,15 +58,18 @@ class Confirm {
             }
         });
         collector.on('end', async (_)=>{
-            if (this.context instanceof _discordJs().CommandInteraction) {
-                if (this.context.ephemeral) return;
-            }
-            let row = new (_discordJs()).ActionRowBuilder().addComponents([
-                new (_discordJs()).ButtonBuilder().setStyle(_discordJs().ButtonStyle.Success).setLabel(this.greenBtnText).setCustomId('yes').setDisabled(true),
-                new (_discordJs()).ButtonBuilder().setStyle(_discordJs().ButtonStyle.Danger).setLabel(this.redBtnText).setCustomId('no').setDisabled(true)
+            let row = new _discordJs.ActionRowBuilder().addComponents([
+                new _discordJs.ButtonBuilder().setStyle(_discordJs.ButtonStyle.Success).setLabel(this.greenBtnText).setCustomId('yes').setDisabled(true),
+                new _discordJs.ButtonBuilder().setStyle(_discordJs.ButtonStyle.Danger).setLabel(this.redBtnText).setCustomId('no').setDisabled(true)
             ]);
             //@ts-ignore d.js make ur fucking typings work
             msg.components[0] = row;
+            if (this.context instanceof _discordJs.CommandInteraction) {
+                this.context.editReply({
+                    components: msg.components
+                });
+                return;
+            }
             msg.edit({
                 components: msg.components
             });
