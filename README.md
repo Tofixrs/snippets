@@ -1,6 +1,7 @@
 # Snippets
 > [!WARNING]  
 > Not updated anymore
+
 Random snippets for various languages and libraries
 
 ## Languages (for now)
